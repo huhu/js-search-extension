@@ -1,7 +1,7 @@
-class eventCommand extends Command {
-    constructor() {
-        super("event", "event search docs!");
-        this.event = eventIndex.map(([name, description, title]) => {
+class EventCommand extends Command {
+    constructor(index) {
+        super("event", "event search docs.");
+        this.event = index.map(([name, description, title]) => {
             return {name, description, title}
         })
     }

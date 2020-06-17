@@ -3,6 +3,7 @@ local icons() = {
   [size]: 'icon.png'
   for size in ['16', '48', '128']
 };
+local js_files(name, files) = ['%s/%s.js' % [name, file] for file in files];
 
 local json = manifest.new(
   name='Js Search Extension',
@@ -11,8 +12,10 @@ local json = manifest.new(
   description='The ultimate search extension for Javascript!',
 )
              .addIcons(icons())
-             .addBackgroundScript([
-  'main.js',
+             .addBackgroundScripts(js_files('index', ['css','event','html']))
+             .addBackgroundScripts(js_files('command', ['css', 'html', 'event', 'dom']))
+             .addBackgroundScripts([
+  'functions.js', 'main.js', 
 ]);
 
 json

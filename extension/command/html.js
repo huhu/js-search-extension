@@ -1,7 +1,7 @@
-class htmlCommand extends Command {
-    constructor() {
-        super("html", "html search docs!");
-        this.html = htmlIndex.map(([name, description]) => {
+class HtmlCommand extends Command {
+    constructor(index) {
+        super("html", "html search docs.");
+        this.html = index.map(([name, description]) => {
             return {name, description}
         })
     }

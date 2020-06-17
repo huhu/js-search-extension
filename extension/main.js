@@ -1,7 +1,9 @@
 const defaultSuggestion = `Search Javascript docs!`;
 const c = new Compat();
 const commandManager = new CommandManager(
-
+    new CssCommand(cssIndex),
+    new HtmlCommand(htmlIndex),
+    new EventCommand(eventIndex)
 );
 
 
@@ -16,14 +18,14 @@ arr = functions.map((item) => {
 
 function findQuery(query) {
     let ar = [];
-    ar = arr.filter((item) => {
-        let description = item.description.split(".");
-        // for (let i=0; i<query.length; i++) {
-            if (description[description.length-1].includes(query)) {
-                return item;
-            }
-        // }
-
+    ar = arr.filter(({ content, description }) => {
+        let descriptions = description.split(".");
+        if (descriptions[descriptions.length - 1].includes(query)) {
+            return {
+                description,
+                content
+            };
+        }
     })
     return ar;
 }
@@ -42,9 +44,9 @@ omibox.bootstrap({
         },
         ];
     },
-    beforeNavigate: (content) => {
-        return content
-    },
+    // beforeNavigate: (content) => {
+    //     return content
+    // },
     afterNavigated: (query, result) => {
         HistoryCommand.record(query, result)
     }
@@ -52,6 +54,6 @@ omibox.bootstrap({
 
 omibox.addPrefixQueryEvent(":", {
     onSearch: (query) => {
-        return  commandManager.execute(query);
+        return commandManager.execute(query);
     },
 });
