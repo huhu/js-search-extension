@@ -1,48 +1,28 @@
 const defaultSuggestion = `Search Javascript docs!`;
 const c = new Compat();
+const domSearcher = new DomSearch(domIndex);
 const commandManager = new CommandManager(
     new CssCommand(cssIndex),
     new HtmlCommand(htmlIndex),
     new EventCommand(eventIndex)
 );
 
+const omnibox = new Omnibox(defaultSuggestion);
 
-const omibox = new Omnibox(defaultSuggestion)
-let arr = [];
-arr = functions.map((item) => {
-    return ({
-        description: `${item.name}`,
-        content: `${item.href}`  //url
-    })
-})
-
-function findQuery(query) {
-    let ar = [];
-    ar = arr.filter(({ content, description }) => {
-        let descriptions = description.split(".");
-        if (descriptions[descriptions.length - 1].includes(query)) {
-            return {
-                description,
-                content
-            };
-        }
-    })
-    return ar;
-}
-
-omibox.bootstrap({
+omnibox.bootstrap({
     onSearch: (query) => {
-        return findQuery(query);
+        return domSearcher.search(query);
     },
     onFormat: (index, doc) => {
-        return { content: doc.content, description: ` ${doc.description}` };
+        return {
+            content: `https://developer.mozilla.org${doc.href}`,
+            description: ` ${c.match(doc.name)} - ${c.dim(c.escape(doc.title))}`,
+        };
     },
     onAppend: () => {
-        return [{
-            content: "kkk",
-            description: "No!!!"
-        },
-        ];
+        return [
+            { content: "sss", description: "onAppend" }
+        ]
     },
     // beforeNavigate: (content) => {
     //     return content
@@ -52,7 +32,7 @@ omibox.bootstrap({
     }
 });
 
-omibox.addPrefixQueryEvent(":", {
+omnibox.addPrefixQueryEvent(":", {
     onSearch: (query) => {
         return commandManager.execute(query);
     },
