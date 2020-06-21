@@ -1,6 +1,6 @@
 const defaultSuggestion = `Search Javascript docs!`;
 const c = new Compat();
-const domSearcher = new DomSearch(domIndex);
+const stdSearcher = new StdSearch(indexData);
 const commandManager = new CommandManager(
     new CssCommand(cssIndex),
     new HtmlCommand(htmlIndex),
@@ -11,12 +11,12 @@ const omnibox = new Omnibox(defaultSuggestion);
 
 omnibox.bootstrap({
     onSearch: (query) => {
-        return domSearcher.search(query);
+        return stdSearcher.search(query);
     },
     onFormat: (index, doc) => {
         return {
             content: `https://developer.mozilla.org${doc.href}`,
-            description: ` ${c.match(doc.name)} - ${c.dim(c.escape(doc.title))}`,
+            description: `${c.match(doc.name)} - ${c.dim(c.escape(doc.title))}`,
         };
     },
     onAppend: () => {

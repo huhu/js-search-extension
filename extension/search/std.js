@@ -1,14 +1,14 @@
-function DomSearch(domIndex) {
-    this.domIndex = domIndex;
+function StdSearch(indexData) {
+    this.indexData = indexData;
 }
 
-DomSearch.prototype.search = function (query) {
+StdSearch.prototype.search = function (query) {
     let result = [];
-    query = query.toLowerCase().replace(/[-_]/i, "");
-    for (let [rawName, href, title] of this.domIndex) {
-        let name = rawName.toLowerCase().replace(/[-_]/i, "");
+    query = query.toLowerCase().replace(/[-_]/gi, "");
+    for (let [rawName, href, title] of this.indexData) {
+        let name = rawName.toLowerCase().replace(/[-_]/gi, "");
         let matchIndex = name.indexOf(query);
-        if (matchIndex != -1) {
+        if (matchIndex !== -1) {
             result.push({
                 name: rawName,
                 href,
