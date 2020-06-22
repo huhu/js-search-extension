@@ -19,9 +19,12 @@ omnibox.bootstrap({
             description: `${c.match(doc.name)} - ${c.dim(c.escape(doc.title))}`,
         };
     },
-    onAppend: () => {
+    onAppend: (query) => {
         return [
-            { content: "sss", description: "onAppend" }
+            {
+                content: `https://developer.mozilla.org/en-US/search?q=${query}`,
+                description: `Search javascript docs ${c.match(query)} on https://developer.mozilla.org/`,
+            }
         ]
     },
     // beforeNavigate: (content) => {
