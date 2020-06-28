@@ -4,7 +4,8 @@ const stdSearcher = new StdSearch(indexData);
 const commandManager = new CommandManager(
     new CssCommand(cssIndex),
     new HtmlCommand(htmlIndex),
-    new EventCommand(eventIndex)
+    new EventCommand(eventIndex),
+    new HistoryCommand(),
 );
 
 const omnibox = new Omnibox(defaultSuggestion);
