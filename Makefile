@@ -1,5 +1,3 @@
-.PHONY: manifest
+include core/extension.mk
 
-manifest:
-	@jsonnet -J core $@.jsonnet --ext-str browser=$(browser) -o extension/$@.json
-	@cp -R core/src extension/core
+.PHONY: chrome
