@@ -1,4 +1,5 @@
-const defaultSuggestion = `Search Javascript docs!`;
+const defaultSuggestion = `Search Javascript, DOM API, and CSS etc docs in your address bar instantly!`;
+const MDN_URL = "https://developer.mozilla.org";
 const c = new Compat();
 const stdSearcher = new StdSearch(indexData);
 const commandManager = new CommandManager(
@@ -16,15 +17,15 @@ omnibox.bootstrap({
     },
     onFormat: (index, doc) => {
         return {
-            content: `https://developer.mozilla.org${doc.href}`,
+            content: `${MDN_URL}${doc.href}`,
             description: `${c.match(doc.name)} - ${c.dim(c.escape(doc.title))}`,
         };
     },
     onAppend: (query) => {
         return [
             {
-                content: `https://developer.mozilla.org/en-US/search?q=${query}`,
-                description: `Search javascript docs ${c.match(query)} on https://developer.mozilla.org/`,
+                content: `${MDN_URL}/en-US/search?q=${query}`,
+                description: `Search javascript docs ${c.match(query)} on ${MDN_URL}`,
             }
         ]
     },

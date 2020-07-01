@@ -1,6 +1,6 @@
 class HtmlCommand extends Command {
     constructor(index) {
-        super("html", "html search docs.");
+        super("html", "Search HTML docs.");
         this.html = index.map(([name, description]) => {
             return {name, description}
         })
