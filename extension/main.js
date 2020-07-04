@@ -3,9 +3,9 @@ const MDN_URL = "https://developer.mozilla.org";
 const c = new Compat();
 const stdSearcher = new StdSearch(indexData);
 const commandManager = new CommandManager(
-    new CssCommand(cssIndex),
-    new HtmlCommand(htmlIndex),
-    new EventCommand(eventIndex),
+    new CssCommand(cssData),
+    new HtmlCommand(htmlData),
+    new EventCommand(eventData),
     new HistoryCommand(),
 );
 
