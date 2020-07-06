@@ -3,6 +3,7 @@ const MDN_URL = "https://developer.mozilla.org";
 const c = new Compat();
 const stdSearcher = new StdSearch(indexData);
 const commandManager = new CommandManager(
+    new HelpCommand(),
     new CssCommand(cssData),
     new HtmlCommand(htmlData),
     new EventCommand(eventData),
