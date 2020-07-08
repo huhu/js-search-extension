@@ -26,9 +26,9 @@ class EventCommand extends Command {
             });
         }
 
-        return results.map((item,index) => {
+        return results.map((item) => {
             return {
-                content: "https://developer.mozilla.org/" + item.description + `?${index}`,
+                content: "https://developer.mozilla.org/" + item.description,
                 description: `${c.match(item.name)} - ${c.dim(c.escape(item.title))}`
             }
         })
