@@ -2,13 +2,13 @@ class HtmlCommand extends Command {
     constructor(index) {
         super("html", "Search HTML docs.");
         this.html = index.map(([name, description]) => {
-            return {name, description}
+            return { name, description }
         })
     }
 
     onExecute(arg) {
         let results = this.html;
-        if(arg) {
+        if (arg) {
             results = [];
             for (let label of this.html) {
                 let index = label.name.toLowerCase().indexOf(arg);
@@ -32,5 +32,12 @@ class HtmlCommand extends Command {
                 description: c.match(item.name)
             }
         })
+    }
+
+    onBlankResult(arg) {
+        return [{
+            content: `https://developer.mozilla.org/en-US/search?q=${arg}`,
+            description: `Search html docs ${c.match(arg)} on https://developer.mozilla.org/`
+        }]
     }
 }
