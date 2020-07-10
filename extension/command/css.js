@@ -17,14 +17,14 @@ class CssCommand extends Command {
                     results.push(label);
                 }
             }
-        }
 
-        results = results.sort((a, b) => {
-            if (a.matchIndex === b.matchIndex) {
-                return a.name.length - b.name.length;
-            }
-            return a.matchIndex - b.matchIndex;
-        });
+            results = results.sort((a, b) => {
+                if (a.matchIndex === b.matchIndex) {
+                    return a.name.length - b.name.length;
+                }
+                return a.matchIndex - b.matchIndex;
+            });
+        }
 
         return results.map((item) => {
             return {
@@ -32,5 +32,12 @@ class CssCommand extends Command {
                 description: c.match(c.escape(item.name)),
             }
         })
+    }
+
+    onBlankResult(arg) {
+        return [{
+            content: `https://developer.mozilla.org/en-US/search?q=${arg}`,
+            description: `Search css docs ${c.match(arg)} on https://developer.mozilla.org/`
+        }]
     }
 }
