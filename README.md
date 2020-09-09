@@ -4,6 +4,8 @@
 
 [![license-mit](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/huhu/js-search-extension/blob/master/LICENSE)
 
+[https://js.extension.sh](https://js.extension.sh)
+
 ## Installation
 
 

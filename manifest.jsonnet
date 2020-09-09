@@ -1,9 +1,10 @@
 local manifest = import 'core/manifest.libsonnet';
+local utils = import 'core/utils.libsonnet';
+
 local icons() = {
   [size]: 'javascript-logo.png'
   for size in ['16', '48', '128']
 };
-local js_files(name, files) = ['%s/%s.js' % [name, file] for file in files];
 
 local json = manifest.new(
   name='Js Search Extension',
@@ -12,9 +13,9 @@ local json = manifest.new(
   description='The ultimate search extension for Javascript!',
 )
              .addIcons(icons())
-             .addBackgroundScripts(js_files('index', ['css','event','html', 'std']))
-             .addBackgroundScripts(js_files('command', ['css', 'html', 'event', 'help']))
-             .addBackgroundScripts(js_files('search', ['std']))
-             .addBackgroundScripts(['main.js',]);
+             .addBackgroundScripts(utils.js_files('index', ['css', 'event', 'html', 'std']))
+             .addBackgroundScripts(utils.js_files('command', ['css', 'html', 'event', 'help']))
+             .addBackgroundScripts(utils.js_files('search', ['std']))
+             .addBackgroundScripts(['main.js']);
 
 json
