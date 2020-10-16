@@ -3,6 +3,7 @@
 ### The ultimate search extension for Javascript.
 
 [![license-mit](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/huhu/js-search-extension/blob/master/LICENSE)
+[![Discord](https://img.shields.io/discord/711895914494558250?label=chat&logo=discord)](https://discord.gg/xucZNVd)
 
 [https://js.extension.sh](https://js.extension.sh)
 
@@ -35,5 +36,5 @@ $ make edge # For Edge version
 
 ## Get involved
 
-- You can contact us on Discord Channel: https://discord.com/invite/UAzW4A
+- You can contact us on Discord Channel: https://discord.gg/xucZNVd
 - Or by adding the Wechat ID: `huhu_io`, we'll invite you to our Wechat group.
