@@ -1,0 +1,24 @@
+# The URL the site will be built for
+base_url = "/"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to do syntax highlighting
+highlight_theme = "inspired-github"
+# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+highlight_code = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = false
+theme = "juice"
+
+[extra]
+# Put all your custom variables here
+juice_logo_name = "JS Search Extension"
+juice_logo_path = "logo.png"
+juice_extra_menu = [
+    { title = "Github", link = "https://github.com/huhu/js-search-extension"}
+]
+meta_title = "JS Search Extension: The ultimate search extension for Javascript"
+meta_description = "Input keyword js then press Space in the address bar to get started. Just that easy!"
