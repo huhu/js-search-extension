@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Changelog |  </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+    :root {
+        /* Primary theme color */
+        --primary-color: #eef9bf;
+        /* Primary theme text color */
+        --primary-text-color: #272343;
+        /* Primary theme link color */
+        --primary-link-color: #75b79e;
+        /* Secondary color: the background body color */
+        --secondary-color: #fcfaf6;
+        --secondary-text-color: #303030;
+        --toc-highlight-text-color: #75b79e;
+    }
+</style>
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="&#x2F;juice.css">
+    
+<meta name="keywords"
+      content="javascript, js, mdn, docs, search extension">
+<meta itemprop="name"
+      content="JS Search Extension: The ultimate search extension for Javascript">
+<meta itemprop="description"
+      content="Input keyword js then press Space in the address bar to get started. Just that easy!">
+<meta itemprop="image" content="https://js.extension.sh/banner.png">
+
+<meta property="og:url" content="https://js.extension.sh">
+<meta property="og:type" content="website">
+<meta property="og:title"
+      content="JS Search Extension: The ultimate search extension for Javascript">
+<meta property="og:description"
+      content="Input keyword js then press Space in the address bar to get started. Just that easy!">
+<meta property="og:image" content="https://js.extension.sh/banner.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@_huhuio">
+<meta name="twitter:creator" content="@_huhuio">
+<meta name="twitter:title"
+      content="JS Search Extension: The ultimate search extension for Javascript">
+<meta name="twitter:description"
+      content="Input keyword js then press Space in the address bar to get started. Just that easy!">
+<meta name="twitter:image" content="https://js.extension.sh/banner.png">
+<link rel="stylesheet" href="&#x2F;index.css">
+
+</head>
+
+<body>
+    
+<header class="box-shadow">
+    
+
+<a href="&#x2F;">
+    <div class="logo">
+        <img src="&#x2F;logo.png" alt="logo">
+        JS Search Extension
+    </div>
+</a>
+
+<nav>
+    
+    <a class="nav-item subtitle-text" href="&#x2F;changelog&#x2F;">Changelog</a>
+    
+    <a class="nav-item subtitle-text" href="&#x2F;privacy&#x2F;">Privacy</a>
+    
+    
+        
+        <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;github.com&#x2F;huhu&#x2F;js-search-extension">Github</a>
+        
+    
+</nav>
+
+</header>
+
+
+    <main>
+        
+        
+        
+        
+        
+        <div class="toc">
+            <div class="toc-sticky">
+                
+                <div class="toc-item">
+                    <a class="subtext" href="/changelog/#v0-1-2020-11-30">v0.1 - 2020-11-30</a>
+                </div>
+                
+                
+            </div>
+        </div>
+        
+        
+
+        <div class="content text">
+            
+<div class="heading-text">Changelog</div>
+<h1 id="v0-1-2020-11-30">v0.1 - 2020-11-30</h1>
+<p>First release version! 🎉🥳🥳</p>
+<ul>
+<li>Search MDN docs</li>
+<li>Command systems:
+<ul>
+<li><code>:help</code> command to show all help messages</li>
+<li><code>:history</code> command to show your local search history </li>
+</ul>
+</li>
+</ul>
+
+
+        </div>
+
+    </main>
+
+    
+<iframe id="footer" src="https://huhu.io/extension-footer.html"
+        style="display:block;width:100%;border:none;"></iframe>
+<script>
+    window.onmessage = e => {
+        e.data.hasOwnProperty("frameHeight") && (document.getElementById("footer").style.height = `${e.data.frameHeight}px`)
+    }
+</script>
+
+</body>
+<script>
+    function highlightNav(heading) {
+        let pathname = location.pathname;
+        document.querySelectorAll(".toc a").forEach((item) => {
+            item.classList.remove("active");
+        });
+        document.querySelector(".toc a[href='" + pathname + "#" + heading + "']").classList.add("active");
+    }
+
+    let currentHeading = "";
+    window.onscroll = function () {
+        let h = document.querySelectorAll("h1,h2,h3,h4,h5,h6");
+        let elementArr = [];
+
+        h.forEach(item => {
+            if (item.id !== "") {
+                elementArr[item.id] = item.getBoundingClientRect().top;
+            }
+        });
+        elementArr.sort();
+        for (let key in elementArr) {
+            if (!elementArr.hasOwnProperty(key)) {
+                continue;
+            }
+            if (elementArr[key] > 0 && elementArr[key] < 300) {
+                if (currentHeading !== key) {
+                    highlightNav(key);
+                    currentHeading = key;
+                }
+                break;
+            }
+        }
+    }
+</script>
+
+</html>
