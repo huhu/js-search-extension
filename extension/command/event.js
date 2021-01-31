@@ -1,9 +1,9 @@
 class EventCommand extends Command {
     constructor(index) {
-        super("event", "Search DOM event docs.");
+        super("event", "Show all DOM events.");
         this.event = index.map(([name, description, title]) => {
-            return { name, description, title }
-        })
+            return {name, description, title}
+        });
     }
 
     onExecute(arg) {

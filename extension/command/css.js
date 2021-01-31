@@ -1,9 +1,9 @@
 class CssCommand extends Command {
     constructor(index) {
-        super("css", "Search css docs.");
+        super("css", "Show all CSS properties.");
         this.css = index.map(([name, description]) => {
-            return { name, description };
-        })
+            return {name, description};
+        });
     }
 
     onExecute(arg) {

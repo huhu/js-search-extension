@@ -1,5 +1,3 @@
-const defaultSuggestion = `Search Javascript, DOM API, and CSS etc docs in your address bar instantly!`;
-const MDN_URL = "https://developer.mozilla.org";
 const c = new Compat();
 const stdSearcher = new StdSearch(indexData);
 const commandManager = new CommandManager(
@@ -10,7 +8,9 @@ const commandManager = new CommandManager(
     new HistoryCommand(),
 );
 
-const omnibox = new Omnibox(defaultSuggestion);
+const MDN_URL = "https://developer.mozilla.org";
+const defaultSuggestion = `Search Javascript, DOM API, and CSS etc docs in your address bar instantly!`;
+const omnibox = new Omnibox(defaultSuggestion, c.omniboxPageSize());
 
 omnibox.bootstrap({
     onSearch: (query) => {
@@ -30,9 +30,6 @@ omnibox.bootstrap({
             }
         ]
     },
-    // beforeNavigate: (content) => {
-    //     return content
-    // },
     afterNavigated: (query, result) => {
         HistoryCommand.record(query, result)
     }
@@ -43,3 +40,8 @@ omnibox.addPrefixQueryEvent(":", {
         return commandManager.execute(query);
     },
 });
+
+let fileNewIssue = "title=Have you found a bug? Did you feel something was missing?&body=Whatever it was, we'd love to hear from you.";
+chrome.runtime.setUninstallURL(
+    `https://github.com/huhu/js-search-extension/issues/new?${encodeURI(fileNewIssue)}`
+);
