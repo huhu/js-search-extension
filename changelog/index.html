@@ -105,11 +105,14 @@
 <h1 id="v0-1-2020-11-30">v0.1 - 2020-11-30</h1>
 <p>First release version! 🎉🥳🥳</p>
 <ul>
-<li>Search MDN docs</li>
+<li>Support search Javascript docs from <a href="https://developer.mozilla.org">MDN websites</a>.</li>
 <li>Command systems:
 <ul>
 <li><code>:help</code> command to show all help messages</li>
-<li><code>:history</code> command to show your local search history </li>
+<li><code>:css</code> command to show all CSS properties</li>
+<li><code>:html</code> command to show all HTML tags</li>
+<li><code>:event</code> command to show all DOM events</li>
+<li><code>:history</code> command to show your local search history</li>
 </ul>
 </li>
 </ul>
@@ -135,7 +138,7 @@
         document.querySelectorAll(".toc a").forEach((item) => {
             item.classList.remove("active");
         });
-        document.querySelector(".toc a[href='" + pathname + "#" + heading + "']").classList.add("active");
+        document.querySelector(".toc a[href$='" + pathname + "#" + heading + "']").classList.add("active");
     }
 
     let currentHeading = "";
