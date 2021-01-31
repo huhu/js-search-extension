@@ -2,7 +2,7 @@ local manifest = import 'core/manifest.libsonnet';
 local utils = import 'core/utils.libsonnet';
 
 local icons() = {
-  [size]: 'javascript-logo.png'
+  [size]: 'logo.png'
   for size in ['16', '48', '128']
 };
 

@@ -18,7 +18,7 @@
 ## How to use it
    
 Input keyword **js** in the address bar, press `Space` to activate the search bar. Then enter any word 
-you want to search, the extension will response the related search results instantly.
+you want to search, the extension will respond the related search results instantly.
 
 ## Contribution
 
