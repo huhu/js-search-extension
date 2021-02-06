@@ -11,7 +11,10 @@ sort_by = "weight"
 The command system brings a handy set of useful and convenient commands to you. Each command starts with a **:** (colon), followed by the name, and function differently in individual. Those commands including but not limited to:
 
 - `:help` - Show the help messages.
-- `:history` - Show your local search history
+- `:css` - Show all CSS properties.
+- `:html` - Show all HTML tags.
+- `:event` - Show all DOM events.
+- `:history` - Show your local search history.
 
 # Miscellaneous
 
