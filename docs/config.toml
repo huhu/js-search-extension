@@ -18,6 +18,7 @@ theme = "juice"
 juice_logo_name = "JS Search Extension"
 juice_logo_path = "logo.png"
 juice_extra_menu = [
+    { title = "Geddle", link = "https://geddle.com"},
     { title = "Github", link = "https://github.com/huhu/js-search-extension"}
 ]
 meta_title = "JS Search Extension: The ultimate search extension for Javascript"
